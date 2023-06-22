@@ -1,0 +1,21 @@
+<%- include('../partials/header.ejs') %>
+    <ul>
+      <% todos.forEach(function(t) { %>
+        <li>
+          <form 
+            action="/todos/<%= t.id %>?_method=DELETE" 
+            method="POST"
+            class="delete-form"
+            >
+            <button type="submit">X</button>
+          </form>
+          <a href="/todos/<%= t.id %>"><%= t.todo %></a>
+            - 
+          <%= t.done ? 'done' : 'not done' %>
+        </li>
+      <% }); %>
+    </ul>
+    <a href="/todos/new">Add To-Do</a>
+
+<%- include('../partials/footer.ejs') %>
+
